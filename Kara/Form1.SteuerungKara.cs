@@ -9,7 +9,7 @@ namespace KaraProjekt
         {
             //Hier die Anweisungen notieren
             // AvoidTree(); - Aufgabe 1.3
-            /* - Aufgabe 1.4
+            /* - Aufgabe 1.4.1 
             AvoidTreeRight();
             AvoidTreeLeft();
             AvoidTreeRight();
@@ -39,7 +39,7 @@ namespace KaraProjekt
             kara.TurnLeft();
         }
 
-        /*   Aufgabe 1.4
+        /*   Aufgabe 1.4.1 */
         private void AvoidTreeRight()
         {
             kara.TurnRight();
@@ -63,6 +63,5 @@ namespace KaraProjekt
             kara.Move();
             kara.TurnLeft();
         }
-        */
     }
 }
