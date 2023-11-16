@@ -8,20 +8,30 @@ namespace KaraProjekt
         private void Main(string args)
         {
             //Hier die Anweisungen notieren
-            // AvoidTree(); - Aufgabe 1.3
-            /* - Aufgabe 1.4.1 
+            
+                // Aufgabe 1.3
+            // AvoidTree();
+            
+                /* - Aufgabe 1.4.1 
             AvoidTreeRight();
             AvoidTreeLeft();
             AvoidTreeRight();
             */
             
+                // Aufgabe 1.4.2
+            // AroundTree();
+            
+                // Aufgabe 1.4.3
+            // PlantLeaf(); 
+            
+            
             //Programmende: nächste Zeile bitte nicht löschen
-            MessageBox.Show("Programmcode ausgeführt!");
+            //MessageBox.Show("Programmcode ausgeführt!");
         }
 
         //Hier können Sie eigene Methoden einfügen
         
-        /* - Aufgabe 1.3
+            // - Aufgabe 1.3
         private void AvoidTree()
         {
             kara.TurnLeft();
@@ -32,14 +42,14 @@ namespace KaraProjekt
             kara.TurnRight();
             kara.Move();
         }
-        */
+        
         private void TurnAround()
         {
-            kara.TurnLeft();
-            kara.TurnLeft();
+            kara.TurnRight();
+            kara.TurnRight();
         }
 
-        /*   Aufgabe 1.4.1 */
+            /* Aufgabe 1.4.1 */
         private void AvoidTreeRight()
         {
             kara.TurnRight();
@@ -63,5 +73,29 @@ namespace KaraProjekt
             kara.Move();
             kara.TurnLeft();
         }
+
+            // Aufgabe 1.4.2
+        private void AroundTree()
+        {
+            AvoidTreeRight();
+            kara.TurnLeft();
+            kara.Move();
+            kara.TurnLeft();
+            kara.Move();
+            kara.Move();
+            kara.TurnLeft();
+            kara.Move();
+            kara.TurnRight();
+        }
+
+            // Aufgabe 1.4.3
+        private void PlantLeaf()
+        {
+            AvoidTreeRight();
+            kara.PutLeaf();
+            kara.Move();
+            TurnAround();
+        }
+        
     }
 }
