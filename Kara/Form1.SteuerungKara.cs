@@ -24,9 +24,34 @@ namespace KaraProjekt
                 // Aufgabe 1.4.3
             // PlantLeaf(); 
             
-            
-            //Programmende: nächste Zeile bitte nicht löschen
-            //MessageBox.Show("Programmcode ausgeführt!");
+                // Aufgabe 2.1 und 2.4.1
+                /*
+                if (kara.TreeFront())
+                {
+                    AvoidTree();
+                }
+                else
+                {
+                    kara.Move();
+                }
+                */
+                
+                // Aufgabe 2.4.2
+                /*
+                kara.Move();
+                LeafChecker();
+                kara.Move();
+                LeafChecker();
+                kara.Move();
+                LeafChecker();
+                kara.Move();
+                LeafChecker();
+                kara.Move();
+                LeafChecker();
+                */
+
+                //Programmende: nächste Zeile bitte nicht löschen
+                MessageBox.Show("Programmcode ausgeführt!");
         }
 
         //Hier können Sie eigene Methoden einfügen
@@ -41,6 +66,7 @@ namespace KaraProjekt
             kara.Move();
             kara.TurnRight();
             kara.Move();
+            kara.TurnLeft();
         }
         
         private void TurnAround()
@@ -95,6 +121,20 @@ namespace KaraProjekt
             kara.PutLeaf();
             kara.Move();
             TurnAround();
+        }
+        
+            // Aufgabe 2.4.2
+        private void LeafChecker()
+        {
+            if (kara.OnLeaf()) 
+            {
+                kara.RemoveLeaf(); 
+            }
+            else
+            {
+                kara.PutLeaf();
+            }
+
         }
         
     }
