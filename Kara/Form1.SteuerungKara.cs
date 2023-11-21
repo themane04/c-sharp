@@ -78,6 +78,7 @@ namespace KaraProjekt
         //Hier können Sie eigene Methoden einfügen
         
             // Aufgabe 1.3
+            //
         private void AvoidTree()
         {
             kara.TurnLeft();
