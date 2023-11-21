@@ -10,19 +10,20 @@ namespace KaraProjekt
             //Hier die Anweisungen notieren
             
                 // Aufgabe 1.3
-            // AvoidTree();
+                // AvoidTree();
             
-                /* - Aufgabe 1.4.1 
-            AvoidTreeRight();
-            AvoidTreeLeft();
-            AvoidTreeRight();
-            */
+                // - Aufgabe 1.4.1
+                /*  
+                AvoidTreeRight();
+                AvoidTreeLeft();
+                AvoidTreeRight();
+                */
             
                 // Aufgabe 1.4.2
-            // AroundTree();
+                // AroundTree();
             
                 // Aufgabe 1.4.3
-            // PlantLeaf(); 
+                // PlantLeaf(); 
             
                 // Aufgabe 2.1 und 2.4.1
                 /*
@@ -50,13 +51,28 @@ namespace KaraProjekt
                 LeafChecker();
                 */
 
+                // Aufgabe 2.6.1
+                /*
+                AvoidingTrees();
+                AvoidingTrees();
+                AvoidingTrees();
+                kara.RemoveLeaf();
+                */
+                
+                // Aufgabe 2.6.2
+                // AvoidTrees();
+                
+                // Aufgabe 2.6.3
+                Labyrinths();
+
+
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
         }
 
         //Hier können Sie eigene Methoden einfügen
         
-            // - Aufgabe 1.3
+            // Aufgabe 1.3
         private void AvoidTree()
         {
             kara.TurnLeft();
@@ -75,7 +91,7 @@ namespace KaraProjekt
             kara.TurnRight();
         }
 
-            /* Aufgabe 1.4.1 */
+            // Aufgabe 1.4.1 
         private void AvoidTreeRight()
         {
             kara.TurnRight();
@@ -135,6 +151,83 @@ namespace KaraProjekt
                 kara.PutLeaf();
             }
 
+        }
+        
+            // Aufgabe 2.6.1
+        private void AvoidingTrees()
+        {
+            while (!kara.TreeFront())
+            {
+                kara.Move();
+            } 
+                
+            if (kara.TreeFront())
+            {
+                AvoidTree();
+            }
+        }
+
+            // Aufgabe 2.6.2
+        private void AvoidTrees()
+        {
+            if (kara.TreeFront()) {
+                kara.TurnLeft();
+                kara.Move();
+                kara.TurnRight();
+                kara.Move();
+                kara.Move();
+                kara.TurnRight();
+                kara.Move();
+                kara.Move();
+                kara.TurnLeft();
+                kara.Move();
+            }
+            
+            while (kara.TreeLeft())
+            {
+                kara.Move();
+            }
+
+            if (!kara.TreeLeft())
+            {
+                kara.TurnLeft();
+                kara.Move();
+                kara.TurnRight();
+                AvoidTree();
+            }
+
+            if (kara.OnLeaf())
+            {
+                kara.RemoveLeaf();
+            }
+        }
+
+        private void Labyrinths()
+        {
+            while (kara.TreeLeft() | kara.TreeRight())
+            {
+                kara.Move();
+                
+                if (kara.TreeFront())
+                {
+                    do
+                    {
+                        if (kara.TreeRight())
+                        {
+                            kara.TurnLeft();    
+                        }
+                        else
+                        {
+                            kara.TurnRight();
+                        }
+                    } while (kara.TreeFront());
+                }
+            }
+            
+            if (kara.TreeFront() && kara.TreeRight() && kara.TreeLeft())
+            {
+                MessageBox.Show("Sackgasse");
+            }
         }
         
     }
