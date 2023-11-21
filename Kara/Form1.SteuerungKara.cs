@@ -63,8 +63,13 @@ namespace KaraProjekt
                 // AvoidTrees();
                 
                 // Aufgabe 2.6.3
-                Labyrinths();
+                // Labyrinths();
+                
+                // Aufgabe 2.6.4
+                // GoingOutsideWalls();
 
+                // Aufgabe 2.6.5
+                // LeafEater();
 
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
@@ -202,14 +207,21 @@ namespace KaraProjekt
             }
         }
 
+            // Aufgabe 2.6.3
         private void Labyrinths()
         {
+            
             while (kara.TreeLeft() | kara.TreeRight())
             {
                 kara.Move();
                 
                 if (kara.TreeFront())
                 {
+                    if (kara.TreeFront() && kara.TreeRight() && kara.TreeLeft())
+                    {
+                        MessageBox.Show("Sackgasse!");
+                    }
+                    
                     do
                     {
                         if (kara.TreeRight())
@@ -223,12 +235,35 @@ namespace KaraProjekt
                     } while (kara.TreeFront());
                 }
             }
-            
-            if (kara.TreeFront() && kara.TreeRight() && kara.TreeLeft())
+        }
+
+            // Aufgabe 2.6.4
+        private void GoingOutsideWalls()
+        {
+            while (kara.TreeRight())
             {
-                MessageBox.Show("Sackgasse");
+                kara.Move();
+                if (!kara.TreeRight())
+                {
+                    kara.TurnRight();
+                    kara.Move();
+                }
+
+                if (kara.TreeFront())
+                {
+                    kara.TurnLeft();
+                }
             }
         }
-        
+
+            // Aufgabe 2.6.5
+        private void LeafEater()
+        {
+            while (!kara.OnLeaf())
+            {
+                kara.Move();
+                kara.RemoveLeaf();
+            }
+        }
     }
 }
