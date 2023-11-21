@@ -69,7 +69,14 @@ namespace KaraProjekt
                 // GoingOutsideWalls();
 
                 // Aufgabe 2.6.5
-                // LeafEater();
+                while (!kara.TreeFront())
+                {
+                    kara.RemoveLeaf();
+                    LeafEater();
+                }
+
+                MessageBox.Show("Ich bin so satt, ich mag kein Blatt!");
+
 
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
@@ -78,7 +85,6 @@ namespace KaraProjekt
         //Hier können Sie eigene Methoden einfügen
         
             // Aufgabe 1.3
-            //
         private void AvoidTree()
         {
             kara.TurnLeft();
@@ -260,10 +266,21 @@ namespace KaraProjekt
             // Aufgabe 2.6.5
         private void LeafEater()
         {
-            while (!kara.OnLeaf())
+            kara.Move();
+            if (!kara.OnLeaf())
             {
+                kara.TurnLeft();
+                kara.TurnLeft();
                 kara.Move();
-                kara.RemoveLeaf();
+                kara.TurnRight();
+                kara.Move();
+                if (!kara.OnLeaf())
+                {
+                    kara.TurnLeft();
+                    kara.TurnLeft();
+                    kara.Move();
+                    kara.Move();
+                }
             }
         }
     }
