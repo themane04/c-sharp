@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 // tetetetetet
 namespace KaraProjekt
 {
@@ -69,6 +70,7 @@ namespace KaraProjekt
                 // GoingOutsideWalls();
 
                 // Aufgabe 2.6.5
+                /*
                 while (!kara.TreeFront())
                 {
                     kara.RemoveLeaf();
@@ -76,7 +78,10 @@ namespace KaraProjekt
                 }
 
                 MessageBox.Show("Ich bin so satt, ich mag kein Blatt!");
-
+                */
+                
+                // Aufgabe 2.6.6
+                InvertPattern();
 
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
@@ -280,6 +285,46 @@ namespace KaraProjekt
                     kara.TurnLeft();
                     kara.Move();
                     kara.Move();
+                }
+            }
+        }
+        
+            // Aufgabe 2.6.6
+        private void InvertPattern()
+        {
+            int sizeOfSquare = 9;
+            
+            for (int row = 0; row < sizeOfSquare; row++)
+            {
+                for (int col = 0; col < sizeOfSquare; col++)
+                {
+                    // Check if Kara is on a leaf, and invert the pattern
+                    if (kara.OnLeaf())
+                    {
+                        kara.RemoveLeaf();
+                    }
+                    else
+                    {
+                        kara.PutLeaf();
+                    }
+                    // Move to the next cell, if not at the end of the row
+                    if (col < sizeOfSquare - 1)
+                    {
+                        kara.Move();
+                    }
+                }
+                // Move Kara to the beginning of the next row
+                if (row < sizeOfSquare - 1)
+                {
+                    kara.TurnLeft();
+                    kara.TurnLeft();
+                    for (int moveBack = 0; moveBack < sizeOfSquare; moveBack++)
+                    {
+                        kara.Move();
+                    }
+                    kara.TurnLeft();
+                    kara.Move();
+                    kara.TurnLeft();
                 }
             }
         }
