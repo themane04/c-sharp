@@ -67,7 +67,7 @@ namespace KaraProjekt
                 // Labyrinths();
                 
                 // Aufgabe 2.6.4
-                // GoingOutsideWalls();
+                GoingOutsideWalls();
 
                 // Aufgabe 2.6.5
                 /*
@@ -81,7 +81,7 @@ namespace KaraProjekt
                 */
                 
                 // Aufgabe 2.6.6
-                InvertPattern();
+                // InvertPattern();
 
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
@@ -252,7 +252,7 @@ namespace KaraProjekt
             // Aufgabe 2.6.4
         private void GoingOutsideWalls()
         {
-            while (kara.TreeRight())
+            while (kara.TreeRight() && !kara.TreeFront())
             {
                 kara.Move();
                 if (!kara.TreeRight())
