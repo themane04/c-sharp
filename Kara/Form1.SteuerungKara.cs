@@ -175,7 +175,26 @@ namespace KaraProjekt
                 */
                 
                 // Aufgabe 3.1.1
-
+                PutLeafLine(5);
+                kara.TurnRight();
+                PutLeafLine(7);
+            
+                
+                // Aufgabe 3.1.2
+                // DrawSquare(5, 5);
+                
+                // Aufgabe 3.1.3
+                // DrawRectangle(5,3);
+                
+                // Aufgabe 3.1.4
+                // DrawTriangle(7);
+                
+                // Aufgabe 3.1.5
+                // DrawRectangleSides(6,4);
+                
+                // Aufgabe 3.1.6
+                PutConeRow(4);
+                
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
         }
@@ -452,7 +471,7 @@ namespace KaraProjekt
         // Aufgabe 2.6.7
         bool goRight = true;
         bool done = false;
-        bool onGround = false;    
+        bool onGround = false;
         private void PutLeafWhenNeeded()
         {
             if (!onGround)
@@ -497,6 +516,169 @@ namespace KaraProjekt
                 goRight = !goRight;
             }
         }
+
+        // Aufgabe 3.1.1
+        private void PutLeafLine(int count)
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                kara.PutLeaf();
+                kara.Move();
+            }
+        }
         
+        // Vorbereitung der Methoden für die weiteren Aufgaben
+        private void Turn180()
+        {
+            TurnAround();
+        }
+        private void PutX(int count)
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                kara.PutLeaf();
+                kara.Move();
+            }
+        }
+        private void MoveX(int count)
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                kara.Move();
+            }
+        }
+        
+        // Aufgabe 3.1.2
+        private void DrawSquare(int side_length, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                PutX(side_length);
+                Turn180();
+                MoveX(side_length);
+                kara.TurnRight();
+                kara.Move();
+                kara.TurnRight();
+                
+            }
+        }
+        
+        // Aufgabe 3.1.3
+        private void DrawRectangle(int width, int height)
+        {
+            for (int i = 0; i < height; i++)
+            {
+                PutX(width);
+                Turn180();
+                MoveX(width);
+                kara.TurnRight();
+                kara.Move();
+                kara.TurnRight();
+            }
+        }
+        
+        // Aufgabe 3.1.4
+        private void DrawTriangle(int base_length)
+        {
+            do
+            {
+                PutX(base_length);
+                Turn180();
+                MoveX(base_length - 1);
+                kara.TurnRight();
+                kara.Move();
+                kara.TurnRight();
+                base_length -= 2;
+            } while (base_length > 0);
+        }
+        
+        // Aufgabe 3.1.5
+        private void DrawRectangleSides(int width, int height)
+        {
+            for (int i = 0; i < width; i++) 
+            { 
+                kara.PutLeaf(); 
+                kara.Move(); 
+            } 
+            kara.TurnLeft(); 
+            kara.Move(); 
+            kara.TurnLeft(); 
+            kara.Move(); 
+
+            for (int j = 0; j < height-2; j++) 
+            { 
+                kara.PutLeaf(); 
+                kara.Move(); 
+                for (int i = 0; i < width - 2; i++) 
+                { 
+                    kara.Move(); 
+                } 
+                kara.PutLeaf(); 
+                if (j%2>0) 
+                { 
+                    kara.TurnLeft(); 
+                    kara.Move(); 
+                    kara.TurnLeft();  
+                } 
+                else 
+                { 
+                    kara.TurnRight(); 
+                    kara.Move(); 
+                    kara.TurnRight(); 
+
+                } 
+            } 
+            for (int i = 0; i < width; i++) 
+            { 
+                kara.PutLeaf(); 
+                kara.Move(); 
+
+            } 
+            kara.TurnLeft(); 
+            kara.Move(); 
+            kara.TurnLeft(); 
+        }
+        
+        // Aufgabe 3.1.6
+        private void PutCone(int side_length)
+        {
+            for (int i = 0; i < 2*side_length; i++)
+            {
+                if (i%2==0)
+                {
+                    PutConeRow(side_length);
+                }
+                else
+                {
+                    PutConeRow(side_length);
+                }
+                GoToNextRow(side_length);
+            }
+        }
+        private void GoToNextRow(int cone_side)
+        {
+            Turn180();
+            for (int i = 0; i < cone_side; i++)
+            {
+                kara.Move();
+            }
+            kara.TurnRight();
+            for (int i = 0; i < cone_side; i++)
+            {
+                kara.Move();
+            }
+            kara.TurnRight();
+        }
+        private void PutConeRow(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                kara.PutLeaf();
+                kara.Move();
+                kara.TurnRight();
+                kara.Move();
+                kara.TurnLeft();
+            }
+        }
     }
 }
