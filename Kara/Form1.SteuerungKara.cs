@@ -175,10 +175,11 @@ namespace KaraProjekt
                 */
                 
                 // Aufgabe 3.1.1
+                /*
                 PutLeafLine(5);
                 kara.TurnRight();
                 PutLeafLine(7);
-            
+                */
                 
                 // Aufgabe 3.1.2
                 // DrawSquare(5, 5);
@@ -193,12 +194,36 @@ namespace KaraProjekt
                 // DrawRectangleSides(6,4);
                 
                 // Aufgabe 3.1.6
-                PutConeRow(4);
+                // PutCone(4);
+                
+                // Aufgabe 3.2.1
+                //
+                
+                // Aufgabe 3.2.2 / 3.2.3
+                // Sensonrs();
+
+                // Aufgabe 3.2.4
+                // CountingLeafs();
+                
+                // Aufgabe 3.3.1
+                // GoToTree();
+
+                // Aufgabe 3.3.2
+                // GetLeaf();
+                // kara.PutLeaf();
+                
+                // Aufgabe 3.3.3
+                // CollectAndLeaveLeaf();
+                
+                // Aufgabe 3.3.4
+                // CollectAndLeaveLeafMirrored();
+                
+                // Aufgabe 3.3.5
+                // PacManRecrusive();
                 
                 //Programmende: nächste Zeile bitte nicht löschen
                 MessageBox.Show("Programmcode ausgeführt!");
         }
-
         //Hier können Sie eigene Methoden einfügen
         
         // Aufgabe 1.3
@@ -625,14 +650,12 @@ namespace KaraProjekt
                     kara.TurnRight(); 
                     kara.Move(); 
                     kara.TurnRight(); 
-
                 } 
             } 
             for (int i = 0; i < width; i++) 
             { 
                 kara.PutLeaf(); 
                 kara.Move(); 
-
             } 
             kara.TurnLeft(); 
             kara.Move(); 
@@ -640,45 +663,332 @@ namespace KaraProjekt
         }
         
         // Aufgabe 3.1.6
-        private void PutCone(int side_length)
-        {
-            for (int i = 0; i < 2*side_length; i++)
-            {
-                if (i%2==0)
+        private void PutCone(int side_length) 
+        { 
+            for (int i = 0; i < 2*side_length-1; i++) 
+            { 
+                if (i%2==0) 
                 {
                     PutConeRow(side_length);
-                }
-                else
-                {
-                    PutConeRow(side_length);
-                }
-                GoToNextRow(side_length);
-            }
+                } 
+                else 
+                { 
+                    PutConeRow(side_length - 1); 
+                } 
+                GoToNextRow(side_length);  
+            } 
         }
-        private void GoToNextRow(int cone_side)
-        {
+        private void GoToNextRow(int cone_side) 
+        { 
             Turn180();
-            for (int i = 0; i < cone_side; i++)
-            {
-                kara.Move();
-            }
-            kara.TurnRight();
-            for (int i = 0; i < cone_side; i++)
-            {
-                kara.Move();
-            }
-            kara.TurnRight();
+            for (int i = 0; i < cone_side - 1; i++) 
+            { 
+                kara.Move(); 
+            } 
+
+            kara.TurnRight(); 
+            for (int i = 0; i < cone_side; i++) 
+            { 
+                kara.Move(); 
+            } 
+            kara.TurnRight(); 
         }
-        private void PutConeRow(int count)
-        {
-            for (int i = 0; i < count; i++)
+        private void PutConeRow(int anzahl) 
+        { 
+            for (int i = 0; i < anzahl; i++) 
+            { 
+                kara.PutLeaf(); 
+                kara.Move(); 
+                kara.TurnRight(); 
+                kara.Move(); 
+                kara.TurnLeft();  
+            } 
+        }
+        
+        // Aufgabe 3.2.1
+        private bool LeafFront() 
+        { 
+            bool result = false; 
+            if (kara.TreeFront()) 
+            { 
+                result = false; 
+            } 
+            else 
+            { 
+                kara.Move(); 
+                if (kara.OnLeaf()) result = true; 
+                Turn180(); 
+                kara.Move(); 
+                Turn180 (); 
+            } 
+            return result; 
+        }//Ende LeafFront 
+
+        private bool LeafLeft() 
+        { 
+            bool result = false; 
+            kara.TurnLeft(); 
+            if(kara.TreeFront())
             {
-                kara.PutLeaf();
+                result = false; 
+                kara.TurnRight(); 
+            } 
+            else 
+            {
+                kara.Move(); 
+                if (kara.OnLeaf()) result = true; 
+                Turn180 (); 
                 kara.Move();
-                kara.TurnRight();
-                kara.Move();
-                kara.TurnLeft();
-            }
+                kara.TurnLeft(); 
+            } 
+            return result; 
+        }
+        private bool LeafRight() 
+        { 
+            bool result = false; 
+            kara.TurnRight(); 
+            if (kara.TreeFront()) 
+            { 
+                result = false; 
+                kara.TurnLeft(); 
+            } 
+            else 
+            { 
+                kara.Move(); 
+                if (kara.OnLeaf()) result = true; 
+                Turn180 (); 
+                kara.Move(); 
+                kara.TurnRight(); 
+            } 
+            return result; 
+        }
+        
+        // Aufgabe 3.2.2 / Aufgabe 3.2.3
+        private void Sensonrs() 
+        {
+            int leaf_count=0;
+            for (int i = 0; i < 20; i++) 
+            { 
+                if(leaf_count==13) 
+                { 
+                    MessageBox.Show("Hi, wie geht's?"); 
+                } 
+                if (kara.OnLeaf()) 
+                { 
+                    kara.RemoveLeaf(); 
+                    leaf_count += 1; 
+                    if (LeafRight()) 
+                    { 
+                        kara.TurnRight(); 
+                    } 
+                    else if(LeafLeft()) 
+                    { 
+                        kara.TurnLeft(); 
+                    } 
+                } 
+                kara.Move(); 
+            } 
+        }
+        
+        // Aufgabe 3.2.4
+        private void CountingLeafs() 
+        { 
+            while(LeafLeft()) 
+            { 
+                int leaf_count; 
+                kara.TurnLeft(); 
+                leaf_count=CountTrailLength(); 
+                PutX(leaf_count); 
+                Turn180(); 
+                MoveX(leaf_count); 
+                kara.TurnRight(); 
+                kara.Move(); 
+
+            } 
+        } 
+        private int CountTrailLength() 
+        { 
+            int leaf_cout = 0; 
+            kara.Move(); 
+            while (kara.OnLeaf()) 
+            { 
+                leaf_cout += 1; 
+                kara.Move(); 
+            } 
+            Turn180(); 
+            for (int i = 0; i < leaf_cout+1; i++) 
+            { 
+                kara.Move();  
+            } 
+            return leaf_cout; 
+        }
+        
+        // Aufabe 3.3.1
+        private void GoToTree() 
+        { 
+            if (!kara.TreeFront()) 
+            { 
+                if(kara.OnLeaf()) 
+                { 
+                    kara.RemoveLeaf(); 
+                } 
+                kara.Move(); 
+                GoToTree(); 
+            } 
+            else 
+            { 
+                Turn180(); 
+            } 
+        }
+        
+        // Aufgabe 3.3.2
+        private void GetLeaf() 
+        { 
+            if(kara.OnLeaf()) 
+            { 
+                Turn180(); 
+                kara.RemoveLeaf(); 
+            } 
+            else 
+            { 
+                kara.Move(); 
+                GetLeaf(); 
+                kara.Move(); 
+            } 
+        }
+        
+        // Aufgabe 3.3.3
+        private void CollectAndLeaveLeaf() 
+        { 
+            if (!kara.TreeFront()) 
+            { 
+                bool is_leaf=false; 
+                if (kara.OnLeaf()) is_leaf = true; 
+                if(is_leaf) 
+                { 
+                    kara.RemoveLeaf(); 
+                } 
+                kara.Move(); 
+                CollectAndLeaveLeaf(); 
+                kara.Move(); 
+                if(is_leaf) 
+                { 
+                    kara.PutLeaf(); 
+                } 
+            } 
+            else 
+            { 
+                Turn180();
+            } 
+        }
+        
+        // Aufgabe 3.3.4
+        private void CollectAndLeaveLeafMirrored() 
+        { 
+            if (!kara.TreeFront()) 
+            { 
+                bool is_leaf = false; 
+                if (kara.OnLeaf()) is_leaf = true; 
+                if (is_leaf) 
+                { 
+                    kara.RemoveLeaf(); 
+                } 
+                kara.Move(); 
+                CollectAndLeaveLeafMirrored(); 
+                kara.Move(); 
+                if (is_leaf) 
+                { 
+                    kara.PutLeaf(); 
+                } 
+            } 
+            else 
+            { 
+                bool istBlatt = false; 
+                if (kara.OnLeaf()) istBlatt = true; 
+                if (istBlatt) 
+                { 
+                    kara.RemoveLeaf(); 
+                } 
+                AroundTree(); 
+                if (istBlatt) 
+                { 
+                    kara.PutLeaf(); 
+                } 
+            } 
+        }
+        private void PacManRecrusive() 
+        { 
+            char direction = 'f'; 
+            if (kara.TreeFront()) 
+            { 
+                kara.RemoveLeaf(); 
+                Turn180(); 
+                MessageBox.Show("Ich bin so satt!"); 
+                kara.PutLeaf(); 
+                switch (direction) 
+                { 
+                    case 'f': 
+                    { 
+                        kara.Move(); 
+                        break; 
+                    } 
+                    
+                    case 'l': 
+                    { 
+                        kara.TurnRight(); 
+                        kara.Move(); 
+                        break; 
+                    } 
+                    default: 
+                    { 
+                        kara.TurnLeft(); 
+                        kara.Move(); 
+                        break; 
+                    } 
+                } 
+            } 
+            else 
+            { 
+                kara.RemoveLeaf(); 
+                if (LeafFront()) 
+                { 
+                    kara.Move(); 
+                } 
+                else if (LeafLeft()) 
+                { 
+                    direction = 'l'; 
+                    kara.TurnLeft(); 
+                    kara.Move(); 
+                } 
+                else if (LeafRight()) 
+                { 
+                    direction = 'r'; 
+                    kara.TurnRight(); 
+                    kara.Move(); 
+                } 
+                PacManRecrusive(); 
+                kara.PutLeaf(); 
+                switch (direction) 
+                { 
+                    case 'f': 
+                    { 
+                        kara.Move(); 
+                        break; 
+                    } 
+                    case 'l': 
+                    { 
+                        kara.TurnRight(); 
+                        kara.Move(); 
+                        break; 
+                    } 
+                    default: 
+                    { 
+                        kara.TurnLeft(); 
+                        kara.Move(); 
+                        break; 
+                    } 
+                } 
+            } 
         }
     }
 }
