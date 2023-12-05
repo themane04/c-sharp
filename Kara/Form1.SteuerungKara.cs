@@ -298,7 +298,7 @@ namespace KaraProjekt
             {
                 for (int col = 0; col < sizeOfSquare; col++)
                 {
-                    // Check if Kara is on a leaf, and invert the pattern
+
                     if (kara.OnLeaf())
                     {
                         kara.RemoveLeaf();
@@ -307,13 +307,13 @@ namespace KaraProjekt
                     {
                         kara.PutLeaf();
                     }
-                    // Move to the next cell, if not at the end of the row
+
                     if (col < sizeOfSquare - 1)
                     {
                         kara.Move();
                     }
                 }
-                // Move Kara to the beginning of the next row
+
                 if (row < sizeOfSquare - 1)
                 {
                     kara.TurnLeft();
