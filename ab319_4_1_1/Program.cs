@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System;
 
 namespace ab319_4_1_1
 {
@@ -20,8 +23,12 @@ namespace ab319_4_1_1
 
             // Aufgabe 4.4
             // Show_Manual();
+
+            // Aufgabe 4.7
+            // biggest_number();
             
-            testing();
+            // Aufgabe 4.8
+            random_comma_numbers();
         }
 
         // FUNKTIONEN / METHODEN
@@ -31,7 +38,7 @@ namespace ab319_4_1_1
             {
                 for (int i = 0; i < count; i++)
                 {
-                    Console.Write("\u2663");
+                    Console.Write("\u2663  ");
                 }
 
                 Console.WriteLine();
@@ -82,7 +89,8 @@ namespace ab319_4_1_1
                 "mit möglichst wenigen Versuchen zu finden und sich dabei die Positionen der Symbolen zu merken. ");
             Console.WriteLine("Hinter den '?' verstecken sich Symbole, die paarweise vorkommen. Fiden Sie diese!");
             Console.WriteLine("Wählen Sie zwei Positionen zum Aufdecken in der Form: Zeile1Spalte1Zeile2Spalte2,");
-            Console.WriteLine("<Bsp. 2142 vergleicht das Symbol in Zeile 2 und Spale 1 mit dem Symbol in Zeile 4 und Spalte 2>");
+            Console.WriteLine(
+                "<Bsp. 2142 vergleicht das Symbol in Zeile 2 und Spale 1 mit dem Symbol in Zeile 4 und Spalte 2>");
             Console.WriteLine("  1  2  3  4");
             Console.WriteLine("1 ?  ?  ?  ?");
             Console.WriteLine("2 *  ?  ?  ?");
@@ -93,29 +101,90 @@ namespace ab319_4_1_1
         // Aufgabe 4.7
         static void biggest_number()
         {
-            Console.WriteLine("Bitte geben Sie eine 1. Zahl ein: ");
-            
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        static void testing()
-        {
-            int[] biggest_num = {1,5,7,9,8};
-            if (biggest_num[1] > biggest_num[4])
+            List<float> numbers = new List<float>();
+
+            for (int i = 1; i < 12; i++)
             {
-                Console.WriteLine("Das erste ist grösser");
+                Console.WriteLine("Bitte geben Sie die " + i + ". Zahl ein:");
+                string user_input = Console.ReadLine();
+
+                if (float.TryParse(user_input, out float num))
+                {
+                    numbers.Add((num));
+                }
+                else
+                {
+                    Console.WriteLine("Das ist keine Zahl!");
+                    return;
+                }
+            }
+
+            if (numbers.Count > 0)
+            {
+                float maxNum = numbers.Max();
+                Console.WriteLine("Die grösste Zahl ist: " + maxNum);
             }
             else
             {
-                Console.WriteLine("nö");
+                Console.WriteLine("Keine gültigen Zahlen eingegeben");
+            }
+        }
+        
+        // Aufgabe 4.8
+        static void random_comma_numbers()
+        {
+            Random random = new Random();
+            Console.WriteLine("Starten Sie das Generieren der Zufallszahlen mit der Enter-Taste...");
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            double biggestNumber = double.MinValue;
+            double biggestNumber2 = double.MinValue;
+            double biggestNumber3 = double.MinValue;
+            double biggestNumber4 = double.MinValue;
+            double biggestNumber5 = double.MinValue;
+            if (keyInfo.Key == ConsoleKey.Enter)
+            {
+                for (int row = 0; row < 5; row++)
+                {
+                    
+                    for (int col = 0; col < 5; col++)
+                    {
+                        double wholeNumber = random.Next(1,100);
+                        double decimalPart = random.NextDouble();
+                        double number = wholeNumber + decimalPart;
+                        string formattedNumber = ($"   {number,-10:0.####################}");
+                        Console.Write($"{formattedNumber}");
+
+                        if (col ==  0 && number > biggestNumber)
+                        {
+                            biggestNumber = number;
+                        }
+                        if (col ==  1 && number > biggestNumber2)
+                        {
+                            biggestNumber2 = number;
+                        }
+                        if (col ==  2 && number > biggestNumber3)
+                        {
+                            biggestNumber3 = number;
+                        }
+                        if (col ==  3 && number > biggestNumber4)
+                        {
+                            biggestNumber4 = number;
+                        }
+                        if (col ==  4 && number > biggestNumber5)
+                        {
+                            biggestNumber5 = number;
+                        }
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+                
+                Console.WriteLine($"Das Maximum der 1. Zeile ist : {biggestNumber}");
+                Console.WriteLine($"Das Maximum der 2. Zeile ist : {biggestNumber2}");
+                Console.WriteLine($"Das Maximum der 3. Zeile ist : {biggestNumber3}");
+                Console.WriteLine($"Das Maximum der 4. Zeile ist : {biggestNumber4}");
+                Console.WriteLine($"Das Maximum der 5. Zeile ist : {biggestNumber5}");
             }
         }
     }
