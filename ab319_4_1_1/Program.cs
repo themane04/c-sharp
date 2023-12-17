@@ -30,10 +30,9 @@ namespace ab319_4_1_1
 
             // Aufgabe 4.8
             // random_comma_numbers();
-            
-            // Aufgabe 5.5
-            GCD(2,4);
 
+            // Aufgabe 5.5
+            GCD();
         }
 
         // FUNKTIONEN / METHODEN
@@ -134,7 +133,7 @@ namespace ab319_4_1_1
                 Console.WriteLine("Keine gültigen Zahlen eingegeben");
             }
         }
-        
+
         // Aufgabe 4.8
         static void random_comma_numbers()
         {
@@ -151,40 +150,45 @@ namespace ab319_4_1_1
             {
                 for (int row = 0; row < 5; row++)
                 {
-                    
                     for (int col = 0; col < 5; col++)
                     {
-                        double wholeNumber = random.Next(1,100);
+                        double wholeNumber = random.Next(1, 100);
                         double decimalPart = random.NextDouble();
                         double number = wholeNumber + decimalPart;
                         string formattedNumber = ($"   {number,-10:0.####################}");
                         Console.Write($"{formattedNumber}");
 
-                        if (col ==  0 && number > biggestNumber)
+                        if (col == 0 && number > biggestNumber)
                         {
                             biggestNumber = number;
                         }
-                        if (col ==  1 && number > biggestNumber2)
+
+                        if (col == 1 && number > biggestNumber2)
                         {
                             biggestNumber2 = number;
                         }
-                        if (col ==  2 && number > biggestNumber3)
+
+                        if (col == 2 && number > biggestNumber3)
                         {
                             biggestNumber3 = number;
                         }
-                        if (col ==  3 && number > biggestNumber4)
+
+                        if (col == 3 && number > biggestNumber4)
                         {
                             biggestNumber4 = number;
                         }
-                        if (col ==  4 && number > biggestNumber5)
+
+                        if (col == 4 && number > biggestNumber5)
                         {
                             biggestNumber5 = number;
                         }
                     }
+
                     Console.WriteLine();
                 }
+
                 Console.WriteLine();
-                
+
                 Console.WriteLine($"Das Maximum der 1. Zeile ist : {biggestNumber}");
                 Console.WriteLine($"Das Maximum der 2. Zeile ist : {biggestNumber2}");
                 Console.WriteLine($"Das Maximum der 3. Zeile ist : {biggestNumber3}");
@@ -193,9 +197,28 @@ namespace ab319_4_1_1
             }
         }
 
-        static void GCD(int num1, int num2)
+        static void GCD()
         {
+            Console.Write("Geben Sie nun die erste Zahl ein: ");
+            int first_num = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Geben Sie nun die zweite Zahl ein: ");
+            int second_num = Convert.ToInt32(Console.ReadLine());
+
+            if (first_num < second_num)
+            {
+                int temporary = first_num;
+                first_num = second_num;
+                second_num = temporary;
+            }
             
+            while (second_num != 0)
+            {
+                int rest = first_num % second_num;
+                first_num = second_num;
+                second_num = rest;
+            }
+            
+            Console.Write("Der grösste gemeinsame Teiler ist: " + first_num);
         }
     }
 }
