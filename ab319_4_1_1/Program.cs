@@ -6,6 +6,7 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System;
+using System.Runtime;
 
 namespace ab319_4_1_1
 {
@@ -26,9 +27,13 @@ namespace ab319_4_1_1
 
             // Aufgabe 4.7
             // biggest_number();
-            
+
             // Aufgabe 4.8
-            random_comma_numbers();
+            // random_comma_numbers();
+            
+            // Aufgabe 5.5
+            GCD(2,4);
+
         }
 
         // FUNKTIONEN / METHODEN
@@ -186,6 +191,11 @@ namespace ab319_4_1_1
                 Console.WriteLine($"Das Maximum der 4. Zeile ist : {biggestNumber4}");
                 Console.WriteLine($"Das Maximum der 5. Zeile ist : {biggestNumber5}");
             }
+        }
+
+        static void GCD(int num1, int num2)
+        {
+            
         }
     }
 }
