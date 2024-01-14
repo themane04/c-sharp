@@ -1,0 +1,13 @@
+C:\Daten\M403\AB_Debuggen\AB_Debuggen\bin\Debug\AB_Debuggen.exe.config
+C:\Daten\M403\AB_Debuggen\AB_Debuggen\bin\Debug\AB_Debuggen.exe
+C:\Daten\M403\AB_Debuggen\AB_Debuggen\bin\Debug\AB_Debuggen.pdb
+C:\Daten\M403\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.csprojResolveAssemblyReference.cache
+C:\Daten\M403\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.exe
+C:\Daten\M403\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.pdb
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\bin\Debug\AB_Debuggen.exe.config
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\bin\Debug\AB_Debuggen.exe
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\bin\Debug\AB_Debuggen.pdb
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.csproj.AssemblyReference.cache
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.csproj.CoreCompileInputs.cache
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.exe
+C:\Users\mane\Documents\gibb\DA\AB_Debuggen\AB_Debuggen\obj\Debug\AB_Debuggen.pdb
