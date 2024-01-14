@@ -4,3 +4,10 @@ C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.CoreCompileInputs.cache
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.exe
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.pdb
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\bin\Debug\ab319_4_1_1.exe
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\bin\Debug\ab319_4_1_1.pdb
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.AssemblyReference.cache
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.SuggestedBindingRedirects.cache
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.CoreCompileInputs.cache
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\obj\Debug\ab319_4_1_1.exe
+D:\Documents\Wichtige Sachen\Dokumente\Meine\GIBB\DA\Projekte\ab319_4_1_1\modul_319_daten-analysieren\ab319_4_1_1\obj\Debug\ab319_4_1_1.pdb

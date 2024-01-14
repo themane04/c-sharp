@@ -41,21 +41,29 @@ namespace memory_game
                     int x2 = charInput[2] - '0' - 1;
                     int y2 = charInput[3] - '0' - 1;
 
-                    OpenCover(Shown, Content, x1, y1, x2, y2);
-                    CompareSymbols(Shown, Content, x1, y1, x2, y2);
-                    HideMemory(Shown);
+                    if (x1 == x2 && y1 == y2)
+                    {
+                        Console.WriteLine("Ungültige Eingabe. Geben Sie bitte 2 unterschiedliche Felder ein.");
+                    }
+                    else
+                    {
+                        OpenCover(Shown, Content, x1, y1, x2, y2);
+                        CompareSymbols(Shown, Content, x1, y1, x2, y2);
+                        HideMemory(Shown);
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Ungültige Eingabe");
-                }                
+                }
             }
 
             Console.WriteLine("Herzlichen Glückwunsch, Sie haben das Spiel gewonnen!");
+            Console.WriteLine("Drücken Sie eine beliebige Taste, um das Spiel zu beenden.");
+            Console.ReadKey();
 
         }  
 
-        // Aufgabe 4.4 - Memory
         static void Show_Manual()
         {
             Console.WriteLine("Herzlich Willkommen zum Memory-Spiel.");
@@ -150,10 +158,18 @@ namespace memory_game
 
         static void OpenCover(char[,] ar1, char[,] ar2, int x1, int y1, int x2, int y2)
         {
-            ar1[x1, y1] = ar2[x1, y1];
-            ar1[x2, y2] = ar2[x2, y2];
-            Show(ar1);
+            if (ar1[x1, y1] == '?' && ar1[x2, y2] == '?')
+            {
+                ar1[x1, y1] = ar2[x1, y1];
+                ar1[x2, y2] = ar2[x2, y2];
+                Show(ar1);
+            }
+            else
+            {
+                Console.WriteLine("Diese/s Feld/er wurde/n bereits aufgedeckt. Bitte wählen Sie andere Felder/ein anderes Feld.");
+            }
         }
+
 
         static void HideMemory(char[,] ar1)
         {
