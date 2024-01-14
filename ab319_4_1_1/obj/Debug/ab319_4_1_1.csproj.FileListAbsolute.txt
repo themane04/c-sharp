@@ -1,7 +1,6 @@
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\bin\Debug\ab319_4_1_1.exe
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\bin\Debug\ab319_4_1_1.pdb
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.AssemblyReference.cache
-C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.SuggestedBindingRedirects.cache
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.csproj.CoreCompileInputs.cache
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.exe
 C:\Users\mane\Documents\gibb\DA\ab319_4_1_1\ab319_4_1_1\ab319_4_1_1\obj\Debug\ab319_4_1_1.pdb

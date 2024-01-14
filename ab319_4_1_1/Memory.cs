@@ -1,4 +1,4 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -11,27 +11,10 @@ namespace ab319_4_1_1
 {
     internal class Program
     {
-        //public static void Main(string[] args)
-        //{
-            // DrawSquare(7);
-
-            // Aufgabe 4.2
-            // Introduction();
-
-            // Aufgabe 4.3
-            // MonthSeconds();
-
-            // Aufgabe 4.4
-            // Show_Manual();
-
-            // Aufgabe 4.7
-            // biggest_number();
-            
-            // Aufgabe 4.8
-            // random_comma_numbers();
-            
-            
-        //}
+        public static void Main(string[] args)
+        {
+            Show_Manual();
+        }
 
         // FUNKTIONEN / METHODEN
         static void DrawSquare(int count)
@@ -75,7 +58,7 @@ namespace ab319_4_1_1
         // Aufgabe 4.3 - MonthSeconds
         static void MonthSeconds()
         {
-            Console.WriteLine("Wie viele Tage hat den Monat, fÃ¼r den Sie die Sekudnen berechnen wollen?");
+            Console.WriteLine("Wie viele Tage hat den Monat, für den Sie die Sekudnen berechnen wollen?");
             int month_days = Convert.ToInt32(Console.ReadLine());
             double total_seconds = month_days * 86400;
             Console.Write("Ein Monat mit " + month_days + " Tagen hat " + total_seconds + " Sekunden");
@@ -86,11 +69,11 @@ namespace ab319_4_1_1
         {
             Console.WriteLine("Herzlich Willkommen zum Memory-Spiel.");
             Console.WriteLine(
-                "Beim Memory-Spiel fÃ¼r Einzelspieler werden alle Symbole verdeckt und der Spieler " +
+                "Beim Memory-Spiel für Einzelspieler werden alle Symbole verdeckt und der Spieler " +
                 "klickt aufs Symbol, um Paare mit identischen Symbolen zu finden. Das Ziel ist es, alle Paare " +
-                "mit mÃ¶glichst wenigen Versuchen zu finden und sich dabei die Positionen der Symbolen zu merken. ");
+                "mit möglichst wenigen Versuchen zu finden und sich dabei die Positionen der Symbolen zu merken. ");
             Console.WriteLine("Hinter den '?' verstecken sich Symbole, die paarweise vorkommen. Fiden Sie diese!");
-            Console.WriteLine("WÃ¤hlen Sie zwei Positionen zum Aufdecken in der Form: Zeile1Spalte1Zeile2Spalte2,");
+            Console.WriteLine("Wählen Sie zwei Positionen zum Aufdecken in der Form: Zeile1Spalte1Zeile2Spalte2,");
             Console.WriteLine(
                 "<Bsp. 2142 vergleicht das Symbol in Zeile 2 und Spale 1 mit dem Symbol in Zeile 4 und Spalte 2>");
             Console.WriteLine("  1  2  3  4");
@@ -124,14 +107,14 @@ namespace ab319_4_1_1
             if (numbers.Count > 0)
             {
                 float maxNum = numbers.Max();
-                Console.WriteLine("Die grÃ¶sste Zahl ist: " + maxNum);
+                Console.WriteLine("Die grösste Zahl ist: " + maxNum);
             }
             else
             {
-                Console.WriteLine("Keine gÃ¼ltigen Zahlen eingegeben");
+                Console.WriteLine("Keine gültigen Zahlen eingegeben");
             }
         }
-        
+
         // Aufgabe 4.8
         static void random_comma_numbers()
         {
@@ -148,32 +131,32 @@ namespace ab319_4_1_1
             {
                 for (int row = 0; row < 5; row++)
                 {
-                    
+
                     for (int col = 0; col < 5; col++)
                     {
-                        double wholeNumber = random.Next(1,100);
+                        double wholeNumber = random.Next(1, 100);
                         double decimalPart = random.NextDouble();
                         double number = wholeNumber + decimalPart;
                         string formattedNumber = ($"   {number,-10:0.####################}");
                         Console.Write($"{formattedNumber}");
 
-                        if (col ==  0 && number > biggestNumber)
+                        if (col == 0 && number > biggestNumber)
                         {
                             biggestNumber = number;
                         }
-                        if (col ==  1 && number > biggestNumber2)
+                        if (col == 1 && number > biggestNumber2)
                         {
                             biggestNumber2 = number;
                         }
-                        if (col ==  2 && number > biggestNumber3)
+                        if (col == 2 && number > biggestNumber3)
                         {
                             biggestNumber3 = number;
                         }
-                        if (col ==  3 && number > biggestNumber4)
+                        if (col == 3 && number > biggestNumber4)
                         {
                             biggestNumber4 = number;
                         }
-                        if (col ==  4 && number > biggestNumber5)
+                        if (col == 4 && number > biggestNumber5)
                         {
                             biggestNumber5 = number;
                         }
@@ -181,7 +164,7 @@ namespace ab319_4_1_1
                     Console.WriteLine();
                 }
                 Console.WriteLine();
-                
+
                 Console.WriteLine($"Das Maximum der 1. Zeile ist : {biggestNumber}");
                 Console.WriteLine($"Das Maximum der 2. Zeile ist : {biggestNumber2}");
                 Console.WriteLine($"Das Maximum der 3. Zeile ist : {biggestNumber3}");
