@@ -187,7 +187,8 @@ namespace KaraProjekt
             // Aufgabe 2.6.2
         private void AvoidTrees()
         {
-            if (kara.TreeFront()) {
+            if (kara.TreeFront()) 
+            {
                 kara.TurnLeft();
                 kara.Move();
                 kara.TurnRight();
