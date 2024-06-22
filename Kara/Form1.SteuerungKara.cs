@@ -521,17 +521,13 @@ namespace KaraProjekt
                 WorkingOnRow();
                 if ((goRight && kara.TreeRight()) || (!goRight && kara.TreeLeft()))
                 {
-<<<<<<< HEAD
-
                     if (kara.OnLeaf())
-=======
                     done = true;
                 }
 
                 if (!done)
                 {
                     if (goRight)
->>>>>>> 00f01ecd7d92ec5004268b59219c8ae6d5090759
                     {
                         kara.TurnRight();
                         PutLeafWhenNeeded();
@@ -539,7 +535,6 @@ namespace KaraProjekt
                     }
                     else
                     {
-<<<<<<< HEAD
                         kara.PutLeaf();
                     }
 
@@ -561,14 +556,12 @@ namespace KaraProjekt
                     kara.Move();
                     kara.TurnLeft();
                 }
-=======
                         kara.TurnLeft();
                         PutLeafWhenNeeded();
                         kara.TurnLeft();
                     }
                 }
                 goRight = !goRight;
->>>>>>> 00f01ecd7d92ec5004268b59219c8ae6d5090759
             }
         }
 
