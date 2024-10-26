@@ -1,3 +1,5 @@
+# C# Module
+
 The C# module in my first year introduced me to programming in a uniquely engaging way through a series of "Kara" exercises. These exercises were pivotal in familiarizing me with the basics of C#, as they involved writing functions that commanded a character named Kara to perform specific actions.
 
 ### Kara Exercises
